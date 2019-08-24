@@ -64,10 +64,15 @@ app.get("/reserve", function (req, res) {
 app.post("/api/tables", function(req, res) {
     var newReservation = req.body;
     if (tables.length < 5) {
-        tables.push(newReservation)
+        tables.push(newReservation);
+        res.send(true);
     }
-    else {waitList.push(newReservation)}
-})
+    else {
+        waitList.push(newReservation)
+        res.send(false);
+    };
+    res.json(newReservation);
+});
 
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);

@@ -61,6 +61,11 @@ app.get("/reserve", function (req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
+app.delete("/api/tables", function (req, res) {
+    tables = [];
+    res.json(tables);
+});
+
 app.post("/api/tables", function(req, res) {
     var newReservation = req.body;
     if (tables.length < 5) {

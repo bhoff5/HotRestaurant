@@ -66,6 +66,11 @@ app.delete("/api/tables", function (req, res) {
     res.json(tables);
 });
 
+app.delete("/api/waitlist", function (req, res) {
+    waitList = [];
+    res.json(waitList);
+});
+
 app.post("/api/tables", function(req, res) {
     var newReservation = req.body;
     if (tables.length < 5) {
